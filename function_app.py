@@ -5,6 +5,11 @@ import json
 import os
 from decimal import Decimal
 
+"""DOVETE MODIFICARE LOCAL.SETTINGS JSON AGGIUNGENDO
+     "SERVER":"DATA-BUONO\\SQLSERVERITS",
+   "DATABASE":"Star_TrekProva",
+   "Trusted_Connection": "yes"""""
+
 # Stringa di connessione al database SQL Server
 """CONNECTION_STRING = (
     "DRIVER={ODBC Driver 17 for SQL Server};"
@@ -24,8 +29,8 @@ from decimal import Decimal
 def get_db_connection():
     conn = pyodbc.connect(
         'DRIVER={ODBC Driver 17 for SQL Server};'
-        f'SERVER={os.getenv("DB_SERVER")};'
-        f'DATABASE={os.getenv("DB_NAME")};'
+        f'SERVER={os.getenv("SERVER")};'
+        f'DATABASE={os.getenv("DATABASE")};'
         f'Trusted_Connection={os.getenv("Trusted_Connection")};'
     )
     return conn
